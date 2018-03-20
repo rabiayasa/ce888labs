@@ -31,6 +31,10 @@ print('Build model...')
 inputs = Input(shape=(maxlen,))
 x = inputs
 x = Embedding(max_features, 128, dropout=0.2)(x)
+
+x = Dense(64)(x)
+x = Activation('relu')(x)
+
 x = Flatten()(x)
 x = Dense(1)(x)
 predictions = Activation("sigmoid")(x)
